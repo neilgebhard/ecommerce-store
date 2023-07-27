@@ -1,8 +1,10 @@
+import Navbar from '@/components/navbar'
+import Footer from '@/components/footer'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Urbanist } from 'next/font/google'
+import { Oswald } from 'next/font/google'
 
-const urbanist = Urbanist({ subsets: ['latin'] })
+const oswald = Oswald({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Store',
@@ -16,7 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={urbanist.className}>{children}</body>
+      <body className={oswald.className}>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }
