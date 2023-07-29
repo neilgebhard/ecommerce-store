@@ -3,6 +3,7 @@ import Footer from '@/components/footer'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Oswald } from 'next/font/google'
+import { ProductModalProvider } from '@/context/product-modal'
 
 const oswald = Oswald({ subsets: ['latin'] })
 
@@ -20,7 +21,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={oswald.className}>
         <Navbar />
-        {children}
+        <ProductModalProvider>{children}</ProductModalProvider>
         <Footer />
       </body>
     </html>

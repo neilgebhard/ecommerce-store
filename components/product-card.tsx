@@ -6,11 +6,19 @@ import { Expand, ShoppingBagIcon, ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
+import { useProductModal } from '@/context/product-modal'
+import { MouseEventHandler } from 'react'
 
 const ProductCard = ({ product }: { product: Product }) => {
   const router = useRouter()
+  const { openProductModal } = useProductModal()
 
   const handleClick = () => router.push(`/product/${product.id}`)
+
+  const handleExpand: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.stopPropagation()
+    openProductModal(product)
+  }
 
   return (
     <div className='group space-y-4 cursor-pointer' onClick={handleClick}>
@@ -26,6 +34,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             size='icon'
             variant='outline'
             className='rounded-full hover:scale-110 transition cursor-pointer'
+            onClick={handleExpand}
           >
             <Expand />
           </Button>
