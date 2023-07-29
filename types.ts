@@ -18,7 +18,7 @@ export type Image = {
   url: string
 }
 
-type Size = {
+export type Size = {
   id: string
   name: string
   value: string

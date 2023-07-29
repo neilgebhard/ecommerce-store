@@ -4,12 +4,11 @@ import ProductList from '@/components/product-list'
 
 const Page = async () => {
   const products = await getProducts({ isFeatured: true })
-  console.log(products)
 
   return (
     <Container>
       <main className='px-6 my-10'>
-        <ProductList products={products} />
+        <ProductList products={products} title='Featured' />
       </main>
     </Container>
   )
