@@ -22,7 +22,7 @@ const Gallery: React.FC<Props> = ({ images }) => {
             <TabsTrigger
               key={image.id}
               value={image.id}
-              className='aspect-square rounded overflow-hidden relative'
+              className='aspect-square rounded overflow-hidden relative border'
             >
               <Image
                 fill

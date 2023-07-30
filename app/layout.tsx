@@ -4,6 +4,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Oswald } from 'next/font/google'
 import { ProductModalProvider } from '@/context/product-modal'
+import { CartProvider } from '@/context/cart'
 import { Toaster } from 'react-hot-toast'
 
 const oswald = Oswald({ subsets: ['latin'] })
@@ -20,12 +21,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={oswald.className}>
-        <Navbar />
-        <ProductModalProvider>{children}</ProductModalProvider>
-        <Footer />
-        <Toaster />
-      </body>
+      <CartProvider>
+        <ProductModalProvider>
+          <body className={oswald.className}>
+            <Navbar />
+            {children}
+            <Footer />
+            <Toaster />
+          </body>
+        </ProductModalProvider>
+      </CartProvider>
     </html>
   )
 }

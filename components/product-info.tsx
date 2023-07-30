@@ -5,22 +5,23 @@ import { formatToUSD } from '@/lib/utils'
 import { ShoppingCart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import { useCart } from '@/context/cart'
 
 type Props = {
   product: Product
 }
 
 const ProductInfo: React.FC<Props> = ({ product }) => {
-  const handleClick = () => {
-    console.log('click')
-  }
+  const { addItem } = useCart()
+
+  const handleClick = () => addItem(product)
 
   return (
     <div>
-      <h1 className='text-3xl font-bold'>{product.name}</h1>
-      <p className='text-2xl mt-2'>{formatToUSD(Number(product.price))}</p>
-      <Separator className='my-3 bg-neutral-200' />
-      <div className='text-xl'>
+      <h1 className='text-2xl font-bold'>{product.name}</h1>
+      <p className='text-xl mt-2'>{formatToUSD(Number(product.price))}</p>
+      <Separator className='my-4' />
+      <div className='text-lg'>
         <div>
           <strong>Size</strong>: {product.size.name}
         </div>

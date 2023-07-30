@@ -8,10 +8,12 @@ import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import { useProductModal } from '@/context/product-modal'
 import { MouseEventHandler } from 'react'
+import { useCart } from '@/context/cart'
 
 const ProductCard = ({ product }: { product: Product }) => {
   const router = useRouter()
   const { openProductModal } = useProductModal()
+  const { addItem } = useCart()
 
   const handleClick = () => router.push(`/product/${product.id}`)
 
@@ -20,9 +22,14 @@ const ProductCard = ({ product }: { product: Product }) => {
     openProductModal(product)
   }
 
+  const handleAddToCart: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.stopPropagation()
+    addItem(product)
+  }
+
   return (
     <div className='group space-y-4 cursor-pointer' onClick={handleClick}>
-      <div className='aspect-square bg-gray-100 relative rounded overflow-hidden'>
+      <div className='aspect-square bg-gray-100 relative rounded overflow-hidden border'>
         <Image
           src={product?.images[0]?.url}
           alt={`Picture of ${product.name}`}
@@ -42,6 +49,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             size='icon'
             variant='outline'
             className='rounded-full hover:scale-110 transition cursor-pointer'
+            onClick={handleAddToCart}
           >
             <ShoppingBagIcon />
           </Button>
