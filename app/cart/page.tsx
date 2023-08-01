@@ -21,22 +21,26 @@ const Page = () => {
 
   useEffect(() => {
     if (success) {
-      toast.success('Payment successful')
-      clearItems()
+      setTimeout(() => {
+        toast.success('Payment successful')
+        clearItems()
+      }, 500)
     }
 
     if (canceled) {
-      toast.error('Payment canceled')
+      setTimeout(() => {
+        toast.error('Payment canceled')
+      }, 500)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams])
 
-  if (items.length === 0)
-    return (
-      <div className='my-20 text-xl text-muted-foreground text-center'>
-        Cart is empty.
-      </div>
-    )
+  // if (items.length === 0)
+  //   return (
+  //     <div className='my-20 text-xl text-muted-foreground text-center'>
+  //       Cart is empty.
+  //     </div>
+  //   )
 
   const subTotal = items.reduce((acc, item) => acc + Number(item.price), 0)
 
@@ -67,6 +71,9 @@ const Page = () => {
               {items.map((item) => (
                 <CartItem key={item.id} item={item} />
               ))}
+              <div className='my-20 text-xl text-muted-foreground text-center'>
+                Cart is empty.
+              </div>
             </div>
             <div className='col-span-5 mt-10 sm:mt-0'>
               <div className='bg-neutral-50 p-4 rounded border'>
