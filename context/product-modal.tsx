@@ -33,21 +33,15 @@ export const ProductModalProvider = ({
     setOpen(true)
   }
 
-  const closeProductModal = () => setOpen(false)
-
   return (
     <Context.Provider value={{ openProductModal }}>
       {children}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent>
-          <DialogHeader>
-            {/* <<DialogTitle>Are you sure absolutely sure?</DialogTitle>
-            <DialogDescription>{product?.name}</DialogDescription>> */}
-            <div className='grid sm:grid-cols-2 gap-4'>
-              {product && <Gallery images={product.images} />}
-              {product && <ProductInfo product={product} />}
-            </div>
-          </DialogHeader>
+        <DialogContent className='overflow-scroll'>
+          <div className='grid sm:grid-cols-2 gap-4'>
+            {product && <Gallery images={product.images} />}
+            {product && <ProductInfo product={product} />}
+          </div>
         </DialogContent>
       </Dialog>
     </Context.Provider>

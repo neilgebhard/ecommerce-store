@@ -1,7 +1,7 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useCart } from '@/context/cart'
 import CartItem from '@/components/cart-item'
 import Container from '@/components/container'
@@ -14,17 +14,22 @@ import toast from 'react-hot-toast'
 const Page = () => {
   const { items, clearItems } = useCart()
   const searchParams = useSearchParams()
+  const [loading, setLoading] = useState(false)
+
+  const success = searchParams.get('success')
+  const canceled = searchParams.get('canceled')
 
   useEffect(() => {
-    if (searchParams.get('success')) {
+    if (success) {
       toast.success('Payment successful')
       clearItems()
     }
 
-    if (searchParams.get('canceled')) {
+    if (canceled) {
       toast.error('Payment canceled')
     }
-  }, [searchParams, clearItems])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams])
 
   if (items.length === 0)
     return (
@@ -36,12 +41,19 @@ const Page = () => {
   const subTotal = items.reduce((acc, item) => acc + Number(item.price), 0)
 
   const handleClick = async () => {
-    const itemIds = items.map((item) => item.id)
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/checkout`,
-      itemIds
-    )
-    window.location = response.data.url
+    setLoading(true)
+    const productIds = items.map((item) => item.id)
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+        { productIds }
+      )
+      window.location = response.data.url
+    } catch (e) {
+      console.error(e)
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -64,7 +76,11 @@ const Page = () => {
                   <div>Subtotal ({items.length} item):</div>
                   <div className='font-bold'>{formatToUSD(subTotal)}</div>
                 </div>
-                <Button className='mt-6 w-full' onClick={handleClick}>
+                <Button
+                  className='mt-6 w-full'
+                  onClick={handleClick}
+                  disabled={loading}
+                >
                   Proceed to Checkout
                 </Button>
               </div>
