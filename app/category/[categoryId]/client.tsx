@@ -19,7 +19,7 @@ const Client: React.FC<Props> = ({ products, sizes, colors }) => {
         </div>
         <div className='col-span-2 md:col-span-4 mt-10 md:mt-0'>
           {products.length === 0 && <NoResults />}
-          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3'>
+          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-10'>
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
