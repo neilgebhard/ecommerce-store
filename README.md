@@ -1,6 +1,7 @@
 # E-commerce Store
 
 [E-commerce Admin Dashboard Repository](https://github.com/neilgebhard/ecommerce-admin)
+
 [E-commerce Store Repository](https://github.com/neilgebhard/ecommerce-store)
 
 ## Overview
@@ -14,6 +15,7 @@ The front-end is developed using React, Next.js, and Tailwind CSS, ensuring an i
 ## Demo
 
 [E-commerce Store](https://ecommerce-store-nine-eosin.vercel.app/)
+
 [E-commerce Admin Dashboard](https://ecommerce-admin-kappa-indol.vercel.app/)
 
 ## Overview
@@ -45,4 +47,5 @@ Create a .env.local file similar to .env.example with the required environment v
 As a passionate developer, I love to explore new technologies, solve real-world problems, and create meaningful applications that can make a positive impact. I'm always open to feedback, collaboration, and constructive criticism. Feel free to explore my projects, raise issues, suggest improvements, or even propose new ideas for future endeavors. Thank you for stopping by my portfolio, and I hope you find something inspiring here. Let's code and make the world a better place, one project at a time!
 
 Happy coding,
+
 Neil
