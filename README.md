@@ -5,7 +5,7 @@
 
 ## Overview
 
-Hello there! Hello there! Welcome to my GitHub repository. I am excited to showcase my full-stack web development skills through an E-commerce store with backend admin integration that utilizes the latest technologies. To create this project, I leveraged React, Next.js, TypeScript, PlanetScale, Prisma, Vercel, and Tailwind CSS. This project was created from scratch, showcasing my ability to develop a full-stack web application from ideation to deployment.
+Hello there! Welcome to my GitHub repository. I am excited to showcase my full-stack web development skills through an E-commerce store with backend admin integration that utilizes the latest technologies. To create this project, I leveraged React, Next.js, TypeScript, PlanetScale, Prisma, Vercel, and Tailwind CSS. This project was created from scratch, showcasing my ability to develop a full-stack web application from ideation to deployment.
 
 My implementation focuses on replicating the essential features of a full-fledged e-commerce application, using such features as user authentication, product management, image uploading, and e-commerce checkout.
 
