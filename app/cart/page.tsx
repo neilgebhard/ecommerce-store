@@ -35,13 +35,6 @@ const Page = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams])
 
-  // if (items.length === 0)
-  //   return (
-  //     <div className='my-20 text-xl text-muted-foreground text-center'>
-  //       Cart is empty.
-  //     </div>
-  //   )
-
   const subTotal = items.reduce((acc, item) => acc + Number(item.price), 0)
 
   const handleClick = async () => {
@@ -71,9 +64,11 @@ const Page = () => {
               {items.map((item) => (
                 <CartItem key={item.id} item={item} />
               ))}
-              <div className='my-20 text-xl text-muted-foreground text-center'>
-                Cart is empty.
-              </div>
+              {items.length === 0 && (
+                <div className='my-20 text-xl text-muted-foreground text-center'>
+                  Cart is empty.
+                </div>
+              )}
             </div>
             <div className='col-span-5 mt-10 sm:mt-0'>
               <div className='bg-neutral-50 p-4 rounded border'>
