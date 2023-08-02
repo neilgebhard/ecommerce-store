@@ -1,4 +1,4 @@
-# E-commerce Store
+# E-commerce Store & Dashboard
 
 [E-commerce Admin Dashboard Repository](https://github.com/neilgebhard/ecommerce-admin)
 
