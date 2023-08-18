@@ -36,7 +36,6 @@ const Filter: React.FC<Props> = ({ valueKey, title, data }) => {
       },
       { skipNull: true }
     )
-    console.log(window.location.href)
 
     router.push(url)
   }

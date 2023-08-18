@@ -50,19 +50,13 @@ Welcome to my full-fledged e-commerce application with both an admin dashboard a
 
 ## Running Locally
 
-1. Clone GitHub repository
-2. Install dependencies
-3. Run the development server
+Clone GitHub repository, install the dependencies, and run the development server:
 
 ```bash
 $ git clone https://github.com/neilgebhard/ecommerce-admin
-$ cd ecommerce-admin
+$ cd ecommerce-store
 $ npm i
 $ npm run dev
 ```
 
-4. Create a .env.local file similar to .env.example with the required environment variables
-
-## Let's Connect
-
-I'm always open to feedback, collaboration, and constructive criticism. Feel free to explore this project, raise issues, or suggest improvements. Happy coding.
+Create a .env file similar to .env.example with the required environment variables.
